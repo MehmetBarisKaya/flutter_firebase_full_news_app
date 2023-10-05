@@ -1,7 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
-import 'package:riverpod_project/feature/splash/splash_view.dart';
+import 'package:riverpod_project/feature/auth/auth_view.dart';
 import 'package:riverpod_project/product/constant/string_constant.dart';
+import 'package:riverpod_project/product/initialize/app_theme.dart';
 
 import 'package:riverpod_project/product/initialize/application_start.dart';
 
@@ -15,10 +16,11 @@ class MyApp extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return const MaterialApp(
+    return MaterialApp(
       debugShowCheckedModeBanner: false,
       title: StringConstant.appName,
-      home: SplashView(),
+      home: const AuthView(),
+      theme: AppTheme(context).theme,
     );
   }
 }
