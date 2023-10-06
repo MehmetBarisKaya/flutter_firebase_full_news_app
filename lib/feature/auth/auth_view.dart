@@ -6,6 +6,8 @@ import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:kartal/kartal.dart';
 import 'package:riverpod_project/feature/auth/auth_provider.dart';
 import 'package:riverpod_project/product/constant/string_constant.dart';
+import 'package:riverpod_project/product/widget/text/sub_title_text.dart';
+import 'package:riverpod_project/product/widget/text/title_text.dart';
 
 class AuthView extends ConsumerStatefulWidget {
   const AuthView({super.key});
@@ -86,18 +88,11 @@ class _Header extends StatelessWidget {
     return Column(
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
-        Text(
-          StringConstant.loginWelcomeBack,
-          style: context.general.textTheme.headlineSmall?.copyWith(
-            fontWeight: FontWeight.bold,
-          ),
-        ),
+        const TitleText(title: StringConstant.loginWelcomeBack),
         Padding(
           padding: context.padding.onlyTopLow,
-          child: Text(
-            StringConstant.loginWelcomeDetail,
-            style: context.general.textTheme.titleMedium,
-          ),
+          child:
+              const SubTitleText(subTitle: StringConstant.loginWelcomeDetail),
         ),
       ],
     );

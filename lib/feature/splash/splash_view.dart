@@ -32,7 +32,7 @@ class _SplashViewState extends ConsumerState<SplashView>
   Widget build(BuildContext context) {
     listenAndNavigate(splashProvider);
     return Scaffold(
-      backgroundColor: ColorConstant.purlePrimary,
+      backgroundColor: ColorConstant.purplePrimary,
       body: Center(
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,

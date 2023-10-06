@@ -50,7 +50,10 @@ dependencies:
   firebase_auth: ^4.10.1
   firebase_ui_oauth_google: ^1.2.11
   google_sign_in: ^6.1.5
+
+  #Cache
   shared_preferences: ^2.2.1
+  responsive_framework: ^1.1.1
 
 dev_dependencies:
   flutter_test:

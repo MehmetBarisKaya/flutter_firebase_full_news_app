@@ -1,7 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
-import 'package:riverpod_project/feature/auth/auth_view.dart';
+import 'package:riverpod_project/feature/home/home_view.dart';
 import 'package:riverpod_project/product/constant/string_constant.dart';
+import 'package:riverpod_project/product/initialize/app_builder.dart';
 import 'package:riverpod_project/product/initialize/app_theme.dart';
 
 import 'package:riverpod_project/product/initialize/application_start.dart';
@@ -17,9 +18,10 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
+      builder: (context, child) => AppBuilder(child).build(),
       debugShowCheckedModeBanner: false,
       title: StringConstant.appName,
-      home: const AuthView(),
+      home: const HomeView(),
       theme: AppTheme(context).theme,
     );
   }
