@@ -3,6 +3,7 @@ import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:kartal/kartal.dart';
+import 'package:riverpod_project/feature/home/home_create/home_create_view.dart';
 
 import 'package:riverpod_project/feature/home/home_provider.dart';
 import 'package:riverpod_project/feature/home/sub_view/home_search_delegate.dart';
@@ -57,6 +58,7 @@ class _HomeViewState extends ConsumerState<HomeView> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      floatingActionButton: HomeViewFloatingActionButton(ref: ref),
       body: Padding(
         padding: context.padding.normal,
         child: Stack(
@@ -79,6 +81,31 @@ class _HomeViewState extends ConsumerState<HomeView> {
           ],
         ),
       ),
+    );
+  }
+}
+
+class HomeViewFloatingActionButton extends StatelessWidget {
+  const HomeViewFloatingActionButton({
+    required this.ref,
+    super.key,
+  });
+
+  final WidgetRef ref;
+
+  @override
+  Widget build(BuildContext context) {
+    return FloatingActionButton(
+      onPressed: () async {
+        final response = await context.route.navigateToPage<bool?>(
+          const HomeCreateView(),
+          type: SlideType.BOTTOM,
+        );
+        if (response ?? false) {
+          await ref.read(_homeProvider.notifier).fetchAndLoad();
+        }
+      },
+      child: const Icon(Icons.add),
     );
   }
 }

@@ -5,6 +5,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:kartal/kartal.dart';
 import 'package:riverpod_project/feature/auth/auth_provider.dart';
+import 'package:riverpod_project/feature/home/home_view.dart';
 import 'package:riverpod_project/product/constant/string_constant.dart';
 import 'package:riverpod_project/product/widget/text/sub_title_text.dart';
 import 'package:riverpod_project/product/widget/text/title_text.dart';
@@ -61,7 +62,9 @@ class _AuthViewState extends ConsumerState<AuthView> {
                   ),
                   if (ref.watch(authProvider).isRedirect)
                     TextButton(
-                      onPressed: () {},
+                      onPressed: () {
+                        context.route.navigateToPage(const HomeView());
+                      },
                       child: Text(
                         StringConstant.continueToApp,
                         textAlign: TextAlign.center,
